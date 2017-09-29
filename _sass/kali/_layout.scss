@@ -2,25 +2,27 @@
  * Site header
  */
 .site-header {
-  min-height: 56px;
+  min-height: 35px;
 
   // Positioning context for the mobile navigation icon
   position: relative;
 }
 
 .site-nav {
-  float: right;
+  float: left;
   line-height: 56px;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  width: 100%;
+  text-align: left;
 
   .page-link {
     color: $text-color;
     line-height: $base-line-height;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
 
     &:hover {
       color: #FE938C;
@@ -30,7 +32,7 @@
 
   @include media-query($on-palm) {
     .page-link {
-      padding: 20px 0;
+      padding: 0 0;
 
       &:not(:last-child) {
         margin-right: 0;
@@ -83,20 +85,23 @@
 }
 
 .page-header {
-  height: 200px;
+  display: flex;
+  min-height: calc(90vh - 5.6vmax - 5ex);
+  padding-top: 0vmin;
+  padding-bottom: 0vmin;
+  margin-bottom: 5vmin;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0,0,0,.02);
+  padding-left: 24vw;
+  padding-right: 24vw;
+  margin-left: -24vw;
+  margin-right: -24vw;
 }
 
 .page-title {
   font-size: 500%;
   position: relative;
-  clear: left;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.page-header {
-  margin-bottom: $spacing-unit;
-  margin-left: auto;
 }
 
 .post-list {
@@ -240,5 +245,22 @@
   &:hover {
       color: white;
       opacity: 0.6;
+  }
+}
+
+.total-page {
+   max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  @extend %clearfix;
+
+  @include media-query($on-laptop) {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+    padding-right: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
   }
 }
