@@ -1,0 +1,22 @@
+<header class="site-header">
+
+  <div class="wrapper">
+    <nav class = "site-nav">
+        {% for link in site.data.navigation.main %}
+          {% if link.url contains "http" %}
+            {% assign url = link.url %}
+          {% else %}
+            {% assign url = link.url | relative_url %}
+          {% endif %}
+          <a class = "page-link" href="{{ url }}">{{ link.title }}</a>
+        {% endfor %}
+    </nav>
+
+    <nav class="social-links">
+      {% for link in site.data.social.main %}
+        <a class="social-link" href="{{ link.url }}"><img src = "{{ link.icon }}" class = "social-icon"></img></a>
+      {% endfor %}
+    </nav>
+  </div>
+
+</header>

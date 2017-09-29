@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator>
+  
+  
+  <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2017-09-29T22:02:12+05:30</updated>
+  <id>http://localhost:4000//</id>
+
+  
+
+  
+
+  
+    <author>
+        <name>Archit Pandey</name>
+      
+      
+    </author>
+  
+
+  
+  
+    <entry>
+      
+      <title type="html">Getting Started with GUIs</title>
+      
+      <link href="http://localhost:4000/blog/compsoc/2017/09/25/getting-started-with-gui.html" rel="alternate" type="text/html" title="Getting Started with GUIs" />
+      <published>2017-09-25T15:30:30+05:30</published>
+      <updated>2017-09-25T15:30:30+05:30</updated>
+      <id>http://localhost:4000/blog/compsoc/2017/09/25/getting-started-with-gui</id>
+      <content type="html" xml:base="http://localhost:4000/blog/compsoc/2017/09/25/getting-started-with-gui.html">&lt;p&gt;While learning a programming language, there’s often a question of how simple problem solving using code is going to help us create software we see around us. The fact is that software engineering requires a lot more skills as a programmer. And a good first step to creating software is to learn how to create graphical user interfaces, commonly referred to as GUIs. In this article, we’ll learn how to get started with creating GUIs in C using a toolkit known as GTK+.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-are-guis&quot;&gt;What are &lt;em&gt;GUIs&lt;/em&gt;?&lt;/h2&gt;
+&lt;p&gt;According to Wikipedia, the graphical user interface, is a type of user interface that allows users to interact with electronic devices through graphical icons and visual indicators such as secondary notation, instead of text-based user interfaces, typed command labels or text navigation. GUIs are one way to make programs interactive. Almost every program we use has a GUI. Having one makes a program easier to understand for users.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/getting-started-with-gui/guivscli.jpg&quot; alt=&quot;Graphical User Interface (GUI) vs Command Line Interface (CLI)&quot; /&gt;
+&lt;em&gt;What are GUIs? : Graphical User Interface (GUI) vs Command Line Interface (CLI)&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction-to-gtk&quot;&gt;Introduction to GTK+&lt;/h2&gt;
+&lt;p&gt;GTK+ or Gimp Toolkit is a toolkit for creating GUIs using widgets. Initially, development of GTK+ was started for use with the GIMP image manipulation program. Later, the toolkit was expanded for use with other software as well. It’s currently one of the best toolkits for creating GUIs in C. And since it’s free software, it can be freely used and softwares created using GTK+ can be freely distributed. GTK+ is based upon four libraries - &lt;em&gt;GLib&lt;/em&gt;, &lt;em&gt;Pango&lt;/em&gt;, &lt;em&gt;Cairo&lt;/em&gt; and &lt;em&gt;ATK&lt;/em&gt;. Each user interface created using GTK+ consists of widgets, since GTK+ is essentially a set of widgets.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-started-with-gtk&quot;&gt;Getting Started with GTK+&lt;/h2&gt;
+&lt;h3 id=&quot;installing-gtk&quot;&gt;Installing GTK+&lt;/h3&gt;
+&lt;p&gt;Open up terminal and type the following command in. Enter your password when asked for.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;archit@archit-len-510s ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get install build-essential libgtk-3-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you have these packages installed, it’s time to start coding and creating our first GTK+ application.&lt;/p&gt;
+
+&lt;h3 id=&quot;hello-world&quot;&gt;Hello, world&lt;/h3&gt;
+&lt;p&gt;We wish to create a simple program which opens up in a window, displays a button which says “Hello, world” and closes the window when clicked.
+This we shall achieve using the given code.&lt;/p&gt;
+
+&lt;p&gt;Open up a text-editor and copy the following code into it, and save it as &lt;em&gt;helloworld.c&lt;/em&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-C&quot;&gt;#include &amp;lt;gtk/gtk.h&amp;gt;
+
+static void print_hello (GtkWidget *widget, gpointer data)
+{
+  g_print (&quot;Hello World\n&quot;);
+}
+
+static void activate (GtkApplication *app, gpointer user_data)
+{
+  GtkWidget *window;
+  GtkWidget *button;
+  GtkWidget *button_box;
+
+  window = gtk_application_window_new (app);
+  gtk_window_set_title (GTK_WINDOW (window), &quot;Window&quot;);
+  gtk_window_set_default_size (GTK_WINDOW (window), 200, 200);
+
+  button_box = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
+  gtk_container_add (GTK_CONTAINER (window), button_box);
+
+  button = gtk_button_new_with_label (&quot;Hello World&quot;);
+  g_signal_connect (button, &quot;clicked&quot;, G_CALLBACK (print_hello), NULL);
+  g_signal_connect_swapped (button, &quot;clicked&quot;, G_CALLBACK(gtk_widget_destroy), window);
+  gtk_container_add (GTK_CONTAINER (button_box), button);
+
+  gtk_widget_show_all (window);
+}
+
+int main (int argc, char **argv)
+{
+  GtkApplication *app;
+  int status;
+
+  app = gtk_application_new (&quot;org.gtk.example&quot;, G_APPLICATION_FLAGS_NONE);
+  g_signal_connect (app, &quot;activate&quot;, G_CALLBACK (activate), NULL);
+  status = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
+
+  return status;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, in order to compile the code, we need to tell the compiler where to find the GTK+ header files and libraries. This is done with the &lt;em&gt;pkg-config&lt;/em&gt; utility.&lt;/p&gt;
+
+&lt;p&gt;The following code demonstrates how &lt;em&gt;pkg-config&lt;/em&gt; is used.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;archit@archit-len-510s ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pkg-config &lt;span class=&quot;nt&quot;&gt;--cflags&lt;/span&gt; gtk+-3.0 &lt;span class=&quot;nt&quot;&gt;-pthread&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/include/gtk-3.0 &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/lib64/gtk-3.0/include &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/include/atk-1.0
+&lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/include/cairo &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/include/pango-1.0 &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/include/glib-2.0
+&lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/lib64/glib-2.0/include &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/include/pixman-1 &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/include/freetype2
+&lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;/usr/include/libpng12
+
+archit@archit-len-510s ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pkg-config &lt;span class=&quot;nt&quot;&gt;--libs&lt;/span&gt; gtk+-3.0 &lt;span class=&quot;nt&quot;&gt;-pthread&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lgtk-3&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lgdk-3&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-latk-1&lt;/span&gt;.0 &lt;span class=&quot;nt&quot;&gt;-lgio-2&lt;/span&gt;.0 &lt;span class=&quot;nt&quot;&gt;-lpangoft2-1&lt;/span&gt;.0 &lt;span class=&quot;nt&quot;&gt;-lgdk_pixbuf-2&lt;/span&gt;.0 &lt;span class=&quot;nt&quot;&gt;-lpangocairo-1&lt;/span&gt;.0
+&lt;span class=&quot;nt&quot;&gt;-lcairo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lpango-1&lt;/span&gt;.0 &lt;span class=&quot;nt&quot;&gt;-lfreetype&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lfontconfig&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lgobject-2&lt;/span&gt;.0 &lt;span class=&quot;nt&quot;&gt;-lgmodule-2&lt;/span&gt;.0
+&lt;span class=&quot;nt&quot;&gt;-lgthread-2&lt;/span&gt;.0 &lt;span class=&quot;nt&quot;&gt;-lrt&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lglib-2&lt;/span&gt;.0     
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Now we are ready to compile our first program.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;archit@archit-len-510s ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;pkg-config &lt;span class=&quot;nt&quot;&gt;--cflags&lt;/span&gt; gtk+-3.0&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt;
+helloworld helloworld.c &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;pkg-config &lt;span class=&quot;nt&quot;&gt;--libs&lt;/span&gt; gtk+-3.0&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now the program can be run using the command,&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;archit@archit-lev-510s ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./helloworld
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;understanding-the-program&quot;&gt;Understanding the program&lt;/h3&gt;
+&lt;p&gt;GTK+ uses layouts to store the UI elements. First we create a widget for window using &lt;em&gt;gtk_application_window_new(app)&lt;/em&gt;. Then in order to store the &lt;em&gt;button&lt;/em&gt;, a &lt;em&gt;button_box&lt;/em&gt; is used. &lt;em&gt;GtkButtonBox&lt;/em&gt; is created for this purpose. This newly created button box is then added to the window widget. The button itself is then inialized using &lt;em&gt;gtk_button_new_with_label()&lt;/em&gt; which returns a &lt;em&gt;GtkButton&lt;/em&gt; to be stored inside &lt;em&gt;button&lt;/em&gt;. Later &lt;em&gt;button&lt;/em&gt; is added to &lt;em&gt;button_box&lt;/em&gt;. Next we need to add functionality to close the app once the button is clicked. This is achieved using &lt;em&gt;g_signal_connect()&lt;/em&gt; which is connected to &lt;em&gt;button&lt;/em&gt;. After connecting &lt;em&gt;print_hello()&lt;/em&gt;, another signal is connected to “clicked” state of the button. This calls the &lt;em&gt;gtk_widget_destroy()&lt;/em&gt; and takes &lt;em&gt;window&lt;/em&gt; as parameter. This destroys the window when the button is clicked. This completes the functionality we require for our simple applcation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/img/getting-started-with-gui/gimp.jpg&quot; alt=&quot;GIMP&quot; /&gt;
+&lt;em&gt;Going Forward : GIMP - a popular Linux program made using GTK+&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;going-forward&quot;&gt;Going Forward&lt;/h2&gt;
+&lt;p&gt;We just created a simple program using GTK+. This has taught us how to respond to clicks and perform a function. And also that the basis for all UIs is a simple widget based structure. Understanding these two things can help us create usable programs. GTK+ is the toolkit used to code all of Ubuntu’s GUI and most programs used on Linux and Windows. Hence it’s capabilities shouldn’t be underestimated. Learning the toolkit, can equip us to create complex UIs such as those seen on popular applications.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Archit Pandey</name>
+          
+          
+        </author>
+      
+
+      
+        <category term="blog" />
+      
+        <category term="CompSoc" />
+      
+
+      
+        <category term="GUI" />
+      
+        <category term="GTK+" />
+      
+        <category term="Gnome" />
+      
+
+      
+        <summary type="html">While learning a programming language, there’s often a question of how simple problem solving using code is going to help us create software we see around us. The fact is that software engineering requires a lot more skills as a programmer. And a good first step to creating software is to learn how to create graphical user interfaces, commonly referred to as GUIs. In this article, we’ll learn how to get started with creating GUIs in C using a toolkit known as GTK+.</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+</feed>

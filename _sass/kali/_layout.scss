@@ -1,0 +1,243 @@
+/**
+ * Site header
+ */
+.site-header {
+  min-height: 56px;
+
+  // Positioning context for the mobile navigation icon
+  position: relative;
+}
+
+.site-nav {
+  float: right;
+  line-height: 56px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  .page-link {
+    color: $text-color;
+    line-height: $base-line-height;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    &:hover {
+      color: #FE938C;
+      text-decoration: none;
+    }
+  }
+
+  @include media-query($on-palm) {
+    .page-link {
+      padding: 20px 0;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}
+
+.social-links {
+  float: left;
+  line-height: 56px;
+
+  .social-link {
+    color: $text-color;
+    line-height: $base-line-height;
+
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  .social-icon {
+    height: 30px;
+    width: 30px;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+/**
+ * Site footer
+ */
+.site-footer {
+  padding: $spacing-unit 0;
+  font-size: 15px;
+  color: $grey-color;
+  text-align: center;
+}
+
+
+
+/**
+ * Page content
+ */
+.page-content {
+  padding: $spacing-unit 0;
+}
+
+.page-header {
+  height: 200px;
+}
+
+.page-title {
+  font-size: 120px;
+  margin-left: 100px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.page-header {
+  margin-bottom: $spacing-unit;
+}
+
+.post-list {
+  margin-left: 100px;
+  list-style: none;
+
+  .post-link:hover {
+    text-decoration: none;
+    color: #4281A4;
+  }
+
+  > li {
+    margin-bottom: $spacing-unit * 2;
+
+    &:not(:first-child) {
+      border-top: 4px solid $grey-color-light;
+      padding-top: $spacing-unit * 2;
+    }
+  }
+}
+
+.post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
+}
+
+.post-link {
+  &,
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover {
+    color: $brand-color;
+  }
+}
+
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: 0;
+}
+
+.post-title {
+  font-size: 28px;
+  letter-spacing: -1px;
+  line-height: 0.9;
+
+  @include media-query($on-laptop) {
+    font-size: 36px;
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+
+  h2 {
+    font-size: 26px;
+
+    @include media-query($on-laptop) {
+      font-size: 28px;
+    }
+  }
+
+  h3 {
+    font-size: 20px;
+
+    @include media-query($on-laptop) {
+      font-size: 22px;
+    }
+  }
+
+  h4 {
+    font-size: 16px;
+
+    @include media-query($on-laptop) {
+      font-size: 18px;
+    }
+  }
+}
+
+
+
+/**
+ * Pagination
+ */
+.pagination {
+  padding: $spacing-unit / 2 0;
+  border-top: 1px solid $grey-color-light;
+  border-bottom: 1px solid $grey-color-light;
+  text-align: center;
+  @extend %clearfix;
+
+  a {
+    &,
+    &:visited {
+      color: $grey-color;
+    }
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+
+  .previous {
+    float: left;
+  }
+
+  .next {
+    float: right;
+  }
+}
+
+.profile-header {
+
+  width: 250px;
+  margin: auto;
+
+  .profile {
+    position: relative;
+    margin: auto;
+  }
+
+  .profile-image {
+    border-radius: 50%;
+  }
+
+  .author-name {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+.back-button {
+  float: left;
+  margin-top: 10px;
+  width: 35px;
+
+  &:hover {
+      color: white;
+      opacity: 0.6;
+  }
+}

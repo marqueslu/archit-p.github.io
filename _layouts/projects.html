@@ -1,0 +1,14 @@
+---
+layout: page
+title: Projects
+---
+
+<ul class = "post-list">
+	{% for project in site.categories.projects %}  
+		<header class="post-header">
+          <h1 class="post-title">
+            <a class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}{% if project.external-url %} &rarr;{% endif %}</a>
+          </h1>
+        </header>    
+	{% endfor %} 
+</ul>

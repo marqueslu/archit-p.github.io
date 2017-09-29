@@ -1,0 +1,15 @@
+# site info
+
+author: Archit Pandey
+authorbio: 
+authimage: /assets/img/archit.png
+
+#markdown info
+markdown: kramdown
+
+include: [_pages, _projects]
+
+#exclude these files
+exclude:
+- README.md
+- LICENSE.md
