@@ -2,7 +2,6 @@
  * Site header
  */
 .site-header {
-
   // Positioning context for the mobile navigation icon
   position: relative;
 }
@@ -101,6 +100,7 @@
   font-size: 420%;
   position: relative;
   font-weight: 700;
+  line-height: 90%;
 }
 
 .post-list {
@@ -234,17 +234,6 @@
     width: 100%;
     text-align: center;
     margin-top: 20px;
-  }
-}
-
-.back-button {
-  float: left;
-  margin-top: 10px;
-  width: 35px;
-
-  &:hover {
-      color: white;
-      opacity: 0.6;
   }
 }
 

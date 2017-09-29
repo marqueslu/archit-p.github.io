@@ -217,7 +217,8 @@ pre {
 .page-title {
   font-size: 420%;
   position: relative;
-  font-weight: 700; }
+  font-weight: 700;
+  line-height: 90%; }
 
 .post-list {
   clear: left;
@@ -304,14 +305,6 @@ pre {
     width: 100%;
     text-align: center;
     margin-top: 20px; }
-
-.back-button {
-  float: left;
-  margin-top: 10px;
-  width: 35px; }
-  .back-button:hover {
-    color: white;
-    opacity: 0.6; }
 
 .total-page {
   max-width: -webkit-calc(800px - (30px * 4));

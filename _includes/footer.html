@@ -1,8 +1,14 @@
 <footer class="site-footer">
 
-
-    <p>
-      &copy; {{ site.author }} - Powered by <a href="https://jekyllrb.com">Jekyll</a>
-    </p>
+<nav class = "social-links">
+        {% for link in site.data.social.main %}
+          {% if link.url contains "http" %}
+            {% assign url = link.url %}
+          {% else %}
+            {% assign url = link.url | relative_url %}
+          {% endif %}
+          <a class = "social-link" href="{{ url }}"><img src = "{{ link.icon }}" class = "social-icon"></a></img>
+        {% endfor %}
+    </nav>
 
 </footer>
