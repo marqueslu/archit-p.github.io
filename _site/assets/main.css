@@ -50,7 +50,7 @@ figcaption {
  * Lists
  */
 ul, ol {
-  margin-left: 30px; }
+  margin-left: 0; }
 
 li > ul,
 li > ol {
@@ -207,18 +207,20 @@ pre {
   height: 200px; }
 
 .page-title {
-  font-size: 120px;
-  margin-left: 100px;
+  font-size: 500%;
   position: relative;
+  clear: left;
   top: 50%;
   transform: translateY(-50%); }
 
 .page-header {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  margin-left: auto; }
 
 .post-list {
-  margin-left: 100px;
-  list-style: none; }
+  clear: left;
+  list-style: none;
+  margin-left: auto; }
   .post-list .post-link:hover {
     text-decoration: none;
     color: #4281A4; }

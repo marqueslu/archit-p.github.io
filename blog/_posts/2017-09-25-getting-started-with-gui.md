@@ -19,7 +19,7 @@ While learning a programming language, there’s often a question of how simple 
 ## What are *GUIs*?
 According to Wikipedia, the graphical user interface, is a type of user interface that allows users to interact with electronic devices through graphical icons and visual indicators such as secondary notation, instead of text-based user interfaces, typed command labels or text navigation. GUIs are one way to make programs interactive. Almost every program we use has a GUI. Having one makes a program easier to understand for users.
 
-![Graphical User Interface (GUI) vs Command Line Interface (CLI)](/blog/assets/img/getting-started-with-gui/guivscli.jpg)
+![Graphical User Interface (GUI) vs Command Line Interface (CLI)](/assets/img/posts/getting-started-with-gui/guivscli.jpg)
 *What are GUIs? : Graphical User Interface (GUI) vs Command Line Interface (CLI)*
 
 ## Introduction to GTK+
@@ -115,7 +115,7 @@ archit@archit-lev-510s ~ $ ./helloworld
 ### Understanding the program
 GTK+ uses layouts to store the UI elements. First we create a widget for window using *gtk_application_window_new(app)*. Then in order to store the *button*, a *button_box* is used. *GtkButtonBox* is created for this purpose. This newly created button box is then added to the window widget. The button itself is then inialized using *gtk_button_new_with_label()* which returns a *GtkButton* to be stored inside *button*. Later *button* is added to *button_box*. Next we need to add functionality to close the app once the button is clicked. This is achieved using *g_signal_connect()* which is connected to *button*. After connecting *print_hello()*, another signal is connected to "clicked" state of the button. This calls the *gtk_widget_destroy()* and takes *window* as parameter. This destroys the window when the button is clicked. This completes the functionality we require for our simple applcation.
 
-![GIMP](/blog/assets/img/getting-started-with-gui/gimp.jpg)
+![GIMP](/assets/img/posts/getting-started-with-gui/gimp.jpg)
 *Going Forward : GIMP - a popular Linux program made using GTK+*
 
 ## Going Forward

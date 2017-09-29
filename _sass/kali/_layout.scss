@@ -87,20 +87,22 @@
 }
 
 .page-title {
-  font-size: 120px;
-  margin-left: 100px;
+  font-size: 500%;
   position: relative;
+  clear: left;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .page-header {
   margin-bottom: $spacing-unit;
+  margin-left: auto;
 }
 
 .post-list {
-  margin-left: 100px;
+  clear: left;
   list-style: none;
+  margin-left: auto;
 
   .post-link:hover {
     text-decoration: none;
@@ -109,7 +111,6 @@
 
   > li {
     margin-bottom: $spacing-unit * 2;
-
     &:not(:first-child) {
       border-top: 4px solid $grey-color-light;
       padding-top: $spacing-unit * 2;
