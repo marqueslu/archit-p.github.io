@@ -1,6 +1,5 @@
 <header class="site-header">
 
-
     <nav class = "site-nav">
         {% for link in site.data.navigation.main %}
           {% if link.url contains "http" %}
@@ -11,6 +10,5 @@
           <a class = "page-link" href="{{ url }}">{{ link.title }}</a>
         {% endfor %}
     </nav>
-
 
 </header>
