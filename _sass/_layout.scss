@@ -5,7 +5,7 @@
     border-bottom: 1px solid $grey-color-light;
     margin-top: -2rem;
     max-width: $max-width;
-    
+    padding-left: 0.4rem;
     p {
       font-size: $small-font-size;
     }
@@ -34,7 +34,7 @@
  */
 .page-content {
     position: relative;
-    padding: $spacing-unit ($spacing-unit * 0.75);
+    padding: $spacing-unit ($spacing-unit*0.2);
     margin: 1rem;
     box-sizing: border-box;
     max-width: $max-width;
@@ -54,7 +54,7 @@
 .post-list > li {
     margin-bottom: $spacing-unit / 4;
     list-style-type: none;
-    margin-left: -2rem;
+    margin-left: -1.5rem;
     a {
         color: $text-color;
         text-decoration: none;
