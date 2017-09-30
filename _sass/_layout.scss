@@ -5,9 +5,19 @@
     border-bottom: 1px solid $grey-color-light;
     margin-top: -2rem;
     max-width: $max-width;
-    
+    padding-left: 0.4rem;
     p {
       font-size: $small-font-size;
+    }
+}
+
+.site-footer {
+    border-top: 1px solid $grey-color-light;
+    max-width: $max-width;
+    padding-top: 1rem;
+    padding-left: 0.4rem;
+    p {
+      font-size: $small-font-size * 0.9;
     }
 }
 
@@ -34,6 +44,7 @@
  */
 .page-content {
     position: relative;
+    padding: $spacing-unit ($spacing-unit*0.2);
     margin: 1rem;
     box-sizing: border-box;
     max-width: $max-width;
@@ -47,13 +58,14 @@
     section + section {
         margin-top: $spacing-unit;
         max-width: $max-width;
+        margin-bottom: $spacing-unit;
     }
 }
 
 .post-list > li {
-    margin-bottom: $spacing-unit / 4;
+    margin-bottom: $spacing-unit/4;
     list-style-type: none;
-    margin-left: -2rem;
+    margin-left: -1.4rem;
     a {
         color: $text-color;
         text-decoration: none;

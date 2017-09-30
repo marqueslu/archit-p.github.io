@@ -171,9 +171,18 @@ hr {
 .site-header {
   border-bottom: 1px solid #eaeaea;
   margin-top: -2rem;
-  max-width: 48rem; }
+  max-width: 48rem;
+  padding-left: 0.4rem; }
   .site-header p {
     font-size: 0.875rem; }
+
+.site-footer {
+  border-top: 1px solid #eaeaea;
+  max-width: 48rem;
+  padding-top: 1rem;
+  padding-left: 0.4rem; }
+  .site-footer p {
+    font-size: 0.7875rem; }
 
 .smallcap {
   font-size: 1.5rem;
@@ -194,6 +203,7 @@ hr {
  */
 .page-content {
   position: relative;
+  padding: 2rem 0.4rem;
   margin: 1rem;
   box-sizing: border-box;
   max-width: 48rem;
@@ -205,12 +215,13 @@ hr {
  */
 .home section + section {
   margin-top: 2rem;
-  max-width: 48rem; }
+  max-width: 48rem;
+  margin-bottom: 2rem; }
 
 .post-list > li {
   margin-bottom: 0.5rem;
   list-style-type: none;
-  margin-left: -2rem; }
+  margin-left: -1.4rem; }
   .post-list > li a {
     color: #333;
     text-decoration: none; }
