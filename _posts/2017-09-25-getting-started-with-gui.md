@@ -1,17 +1,14 @@
 ---
 layout: post
-title: "Getting Started with GUIs"
-author_github: archpndy
+title: 'Getting Started with GUIs'
 date: 2017-09-25 10:00:30
-image: '/assets/img/'
 description: 'Stepping into software development'
 tags:
 - GUI
 - GTK+
 - Gnome
 categories:
-- CompSoc
-github_username: 'archpndy'
+- C
 ---
 
 While learning a programming language, there’s often a question of how simple problem solving using code is going to help us create software we see around us. The fact is that software engineering requires a lot more skills as a programmer. And a good first step to creating software is to learn how to create graphical user interfaces, commonly referred to as GUIs. In this article, we’ll learn how to get started with creating GUIs in C using a toolkit known as GTK+.
@@ -23,7 +20,7 @@ According to Wikipedia, the graphical user interface, is a type of user interfac
 *What are GUIs? : Graphical User Interface (GUI) vs Command Line Interface (CLI)*
 
 ## Introduction to GTK+
-GTK+ or Gimp Toolkit is a toolkit for creating GUIs using widgets. Initially, development of GTK+ was started for use with the GIMP image manipulation program. Later, the toolkit was expanded for use with other software as well. It’s currently one of the best toolkits for creating GUIs in C. And since it’s free software, it can be freely used and softwares created using GTK+ can be freely distributed. GTK+ is based upon four libraries - *GLib*, *Pango*, *Cairo* and *ATK*. Each user interface created using GTK+ consists of widgets, since GTK+ is essentially a set of widgets.  
+GTK+ or Gimp Toolkit is a toolkit for creating GUIs using widgets. Initially, development of GTK+ was started for use with the GIMP image manipulation program. Later, the toolkit was expanded for use with other software as well. It’s currently one of the best toolkits for creating GUIs in C. And since it’s free software, it can be freely used and softwares created using GTK+ can be freely distributed. GTK+ is based upon four libraries - *GLib*, *Pango*, *Cairo* and *ATK*. Each user interface created using GTK+ consists of widgets, since GTK+ is essentially a set of widgets.
 
 ## Getting Started with GTK+
 ### Installing GTK+
@@ -98,7 +95,7 @@ archit@archit-len-510s ~ $ pkg-config --cflags gtk+-3.0 -pthread
 archit@archit-len-510s ~ $ pkg-config --libs gtk+-3.0 -pthread -lgtk-3 -lgdk-3
 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0
 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0
--lgthread-2.0 -lrt -lglib-2.0     
+-lgthread-2.0 -lrt -lglib-2.0
 ```
 Now we are ready to compile our first program.
 ```shell

@@ -8,8 +8,8 @@
   <meta name="description" content="Life, one byte at a time.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/compsoc/2017/09/25/getting-started-with-gui/">
-  <link rel="alternate" type="application/rss+xml" title="Archit Pandey" href="http://localhost:4000/feed.xml">
+  <link rel="canonical" href="/c/2017/09/25/getting-started-with-gui/">
+  <link rel="alternate" type="application/rss+xml" title="Archit Pandey" href="/feed.xml">
 </head>
 
   <body>
@@ -30,9 +30,9 @@
   		•	<span class="tags" itemprop="tags">
   				
   				
-  				<a href="http://localhost:4000/tagged#gui">#GUI</a>
-  			<a href="http://localhost:4000/tagged#gtk">#GTK+</a>
-  			<a href="http://localhost:4000/tagged#gnome">#Gnome</a>
+  				<a href="/tagged#gui">#GUI</a>
+  			<a href="/tagged#gtk">#GTK+</a>
+  			<a href="/tagged#gnome">#Gnome</a>
   			</span>
 
   	  
@@ -120,7 +120,7 @@ int main (int argc, char **argv)
 archit@archit-len-510s ~ <span class="nv">$ </span>pkg-config <span class="nt">--libs</span> gtk+-3.0 <span class="nt">-pthread</span> <span class="nt">-lgtk-3</span> <span class="nt">-lgdk-3</span>
 <span class="nt">-latk-1</span>.0 <span class="nt">-lgio-2</span>.0 <span class="nt">-lpangoft2-1</span>.0 <span class="nt">-lgdk_pixbuf-2</span>.0 <span class="nt">-lpangocairo-1</span>.0
 <span class="nt">-lcairo</span> <span class="nt">-lpango-1</span>.0 <span class="nt">-lfreetype</span> <span class="nt">-lfontconfig</span> <span class="nt">-lgobject-2</span>.0 <span class="nt">-lgmodule-2</span>.0
-<span class="nt">-lgthread-2</span>.0 <span class="nt">-lrt</span> <span class="nt">-lglib-2</span>.0     
+<span class="nt">-lgthread-2</span>.0 <span class="nt">-lrt</span> <span class="nt">-lglib-2</span>.0
 </code></pre></div></div>
 <p>Now we are ready to compile our first program.</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>archit@archit-len-510s ~ <span class="nv">$ </span>gcc <span class="sb">`</span>pkg-config <span class="nt">--cflags</span> gtk+-3.0<span class="sb">`</span> <span class="nt">-o</span>
